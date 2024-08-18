@@ -75,6 +75,7 @@ function M.setup(opts)
                 group = augroup,
                 callback = truncate_line,
             })
+        end
     end
 
     function M.ToggleTruncate()
