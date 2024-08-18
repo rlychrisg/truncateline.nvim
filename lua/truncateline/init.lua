@@ -21,7 +21,7 @@ function M.setup(opts)
     local function truncate_line()
 
         -- clear existing virtual text
-        -- i dunno if the if is needed
+        -- i dunno if the if is needed, it fixes a bug with easyjump, i think
         if virt_text_ns then
             vim.api.nvim_buf_clear_namespace(current_buffer, virt_text_ns, 0, -1)
         end
@@ -71,8 +71,8 @@ function M.setup(opts)
 
     -- if enabled, trigger autocmd
     local function create_ac()
-        -- this hopefully fixes the first install bug, without stopping the thing
-        -- working until toggled
+        -- this is a bodge because it will prevent the plugin from working on any buffer with no of 2
+        -- need to find a way of ruling out whether current buffer is lazy or some other plugin manager window
         if _G.is_truncate_enabled and current_buffer ~= 2 then
             vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
                 group = augroup,
