@@ -68,9 +68,8 @@ function M.setup(opts)
 
     -- if enabled, trigger autocmd
     local function create_ac()
-        -- this hopefully fixes the first install bug, without stopping the thing
-        -- this is a bodge because while it will prevent plugin from breaking if lazy is open, it also won't work in normal buffers
-        if _G.is_truncate_enabled and current_buffer ~= 2 then
+        -- buflisted check hopefully stops plugin windows breaking it
+        if _G.is_truncate_enabled and vim.bo.buflisted then
             vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
                 group = augroup,
                 callback = truncate_line,
