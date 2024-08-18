@@ -68,7 +68,7 @@ function M.setup(opts)
 
     -- if enabled, trigger autocmd
     local function create_ac()
-        if _G.is_truncate_enabled then
+        if _G.is_truncate_enabled and virtual_text_namespace then
             vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
                 group = augroup,
                 callback = truncate_line,
