@@ -2,6 +2,9 @@
 
 ![eg](eg.png)
 
+## Important
+Upon first installing I notice an error about namespaces, Just exit Neovim and it will be gone when you enter it again. I'll figure out what's going on there because it's a bit amateurish.
+
 ### About
 
 A Neovim plugin for the prevention of getting lost when scrolling off into the yonder. When no longer visible, truncateline will display the first n characters of non-whitespace text of a line as virtual text. Now the text will appear to be truncated, which just adds another solution for dealing with very long lines, instead of having to rely on wrapping which is difficult to follow sometimes. This is very handy for editing database files and HTML, as well as pretty much anything a tiling window manager user might like to edit on a laptop. One way to use this would be to have it always on, and let the first 8 characters appear should you scroll to the right. This is the default, but it may be preferable to set the plugin to disabled, set a longer character count, and instead use the temporary toggle feature for a quick reminder, should you need it.
