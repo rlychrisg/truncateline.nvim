@@ -9,7 +9,6 @@ M.config = {
 }
 
 -- some vars for readability
-local current_buffer = vim.api.nvim_get_current_buf()
 local augroup = vim.api.nvim_create_augroup('VirtualText', { clear = true })
 local virt_text_ns = vim.api.nvim_create_namespace('virtual_text_namespace')
 
@@ -21,6 +20,7 @@ function M.setup(opts)
     local function truncate_line()
 
         -- clear existing virtual text
+        local current_buffer = vim.api.nvim_get_current_buf() -- needs to be set in the function so it changes when buf changed
         vim.api.nvim_buf_clear_namespace(current_buffer, virt_text_ns, 0, -1)
 
         -- get first and last lines visible on screen
@@ -68,10 +68,9 @@ function M.setup(opts)
 
     -- if enabled, trigger autocmd
     local function create_ac()
-        -- this hopefully fixes the first install bug, without stopping the thing
-        -- this is a bodge because while it will prevent plugin from breaking if lazy is open, it also won't work in normal buffers
-        if _G.is_truncate_enabled and current_buffer ~= 2 then
-            vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
+        -- buflisted check hopefully stops plugin windows breaking it
+        if _G.is_truncate_enabled and vim.bo.buflisted then
+            vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled", "BufEnter" }, {
                 group = augroup,
                 callback = truncate_line,
             })
@@ -82,6 +81,7 @@ function M.setup(opts)
         if _G.is_truncate_enabled then
             _G.is_truncate_enabled = false
             print('TruncateLine disabled')
+            local current_buffer = vim.api.nvim_get_current_buf() -- needs to be set in the function so it changes when buf changed
             vim.api.nvim_buf_clear_namespace(current_buffer, virt_text_ns, 0, -1)
             vim.cmd[[autocmd! VirtualText]]
         else
