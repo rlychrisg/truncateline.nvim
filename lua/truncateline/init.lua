@@ -68,8 +68,15 @@ function M.setup(opts)
 
     -- if enabled, trigger autocmd
     local function create_ac()
+        -- this hopefully fixes the first install bug, without stopping the thing
+        -- working until toggled
         if _G.is_truncate_enabled and virtual_text_namespace then
             vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
+                group = augroup,
+                callback = truncate_line,
+            })
+        elseif G.is_truncate_enabled then
+            vim.api.nvim_create_autocmd({ "WinScrolled" }, {
                 group = augroup,
                 callback = truncate_line,
             })
