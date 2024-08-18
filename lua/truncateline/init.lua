@@ -66,6 +66,15 @@ function M.setup(opts)
         end
     end
 
+    function M.IsBufferListed()
+        if vim.bo.buflisted then
+            print('listed')
+        else
+            print('not listed')
+        end
+    end
+
+
     -- if enabled, trigger autocmd
     local function create_ac()
         -- buflisted check hopefully stops plugin windows breaking it
