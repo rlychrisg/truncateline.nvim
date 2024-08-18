@@ -3,7 +3,7 @@
 ![eg](eg.png)
 
 ## Important
-Upon first installing I notice an error about namespaces, Just exit Neovim and it will be gone when you enter it again. I'll figure out what's going on there because it's a bit amateurish.
+Upon first installing you may encounter an error message about namespace id. I'm pretty sure I fixed this but if it happens, just restart Neovim and it will go away. The problem is the plugin manager running a plugin that hasn't had the chance to load normally.
 
 ### About
 
