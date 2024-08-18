@@ -75,7 +75,7 @@ function M.setup(opts)
                 group = augroup,
                 callback = truncate_line,
             })
-        elseif G.is_truncate_enabled then
+        elseif _G.is_truncate_enabled then
             vim.api.nvim_create_autocmd({ "WinScrolled" }, {
                 group = augroup,
                 callback = truncate_line,
