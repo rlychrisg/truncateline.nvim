@@ -21,9 +21,7 @@ function M.setup(opts)
     local function truncate_line()
 
         -- clear existing virtual text
-        -- TODO i think i need to add a condition here, to check namespace exists, like i do in create_ac
-        -- which could actually mean changing that back to how it was.
-
+        -- i dunno if the if is needed
         if virt_text_ns then
             vim.api.nvim_buf_clear_namespace(current_buffer, virt_text_ns, 0, -1)
         end
@@ -75,7 +73,7 @@ function M.setup(opts)
     local function create_ac()
         -- this hopefully fixes the first install bug, without stopping the thing
         -- working until toggled
-        if _G.is_truncate_enabled then
+        if _G.is_truncate_enabled and current_buffer ~= 2 then
             vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
                 group = augroup,
                 callback = truncate_line,
