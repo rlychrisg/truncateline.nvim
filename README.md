@@ -20,6 +20,8 @@ For a default configuration:
 ```lua
 {
   "rlychrisg/truncateline.nvim",
+  -- NOTE: these keybinds are not set by default and will need to be set
+  -- either here, or wherever you set your keybinds.
   keys = {
     {
       "<leader>l",
