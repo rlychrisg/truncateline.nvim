@@ -2,7 +2,7 @@
 
 A customisable way to avoid getting lost by truncating long lines
 
-![eg](eg.png)
+https://github.com/user-attachments/assets/0ae6a88e-0ae5-47f5-90d0-b2455b652938
 
 > [!WARNING]
 > Upon first installing you may encounter an error message about namespace id. I'm pretty sure I fixed this but if it happens, just restart Neovim and it will go away. The problem is the plugin manager running a plugin that hasn't had the chance to load normally.
