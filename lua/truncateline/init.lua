@@ -108,5 +108,14 @@ function M.setup(opts)
 
 end
 
+-- create commands for functions
+vim.api.nvim_create_user_command('ToggleTruncate', function()
+    M.ToggleTruncate()
+end, {})
+
+vim.api.nvim_create_user_command('TemporaryToggle', function()
+    M.TemporaryToggle()
+end, {})
+
 return M
 

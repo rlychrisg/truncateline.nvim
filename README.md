@@ -1,11 +1,8 @@
 # ✂️  truncateline.nvim
 
-A customisable way to avoid getting lost by truncating long lines
+A customisable way to avoid getting lost by truncating long lines.
 
 https://github.com/user-attachments/assets/0ae6a88e-0ae5-47f5-90d0-b2455b652938
-
-> [!WARNING]
-> Upon first installing you may encounter an error message about namespace id. I'm pretty sure I fixed this but if it happens, just restart Neovim and it will go away. The problem is the plugin manager running a plugin that hasn't had the chance to load normally.
 
 ## ✨ Features
 
@@ -23,21 +20,15 @@ For a default configuration:
   -- NOTE: these keybinds are not set by default and will need to be set
   -- either here, or wherever you set your keybinds.
   keys = {
-    {
-      "<leader>l",
-      function()
-        require("truncateline").TemporaryToggle()
-      end,
-      { noremap = true, silent = true, desc = "TruncateLine temporary toggle" },
-    },
+      {
+          "<leader>l", ":TemporaryToggle<CR>",
+          { noremap = true, silent = true, desc = "TruncateLine temporary toggle" },
+      },
 
-    {
-      "<leader>sl",
-      function()
-        require("truncateline").ToggleTruncate()
-      end,
-      { noremap = true, silent = true, desc = "TruncateLine toggle" },
-    },
+      {
+          "<leader>sl", ":ToggleTruncate<CR>",
+          { noremap = true, silent = true, desc = "TruncateLine toggle" },
+      },
   },
   opts = {
     enabled_on_start = true,
@@ -52,7 +43,7 @@ For a default configuration:
     -- setting, to prevent obscuring text.
     line_start_length = 8,
 
-    -- time in ms for a temporary toggle
+    -- time for in ms for a temporary toggle
     temporary_toggle_dur = 2000,
 
     -- which highlight group should be used for virtual text.
