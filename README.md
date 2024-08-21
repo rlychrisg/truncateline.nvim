@@ -52,7 +52,7 @@ For a default configuration:
     -- setting, to prevent obscuring text.
     line_start_length = 8,
 
-    -- time for in ms for a temporary toggle
+    -- time in ms for a temporary toggle
     temporary_toggle_dur = 2000,
 
     -- which highlight group should be used for virtual text.
