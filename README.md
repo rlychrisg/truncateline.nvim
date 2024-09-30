@@ -48,7 +48,8 @@ For a default configuration:
 
     -- which highlight group should be used for virtual text.
     -- "Comment", or "Normal" are good choices, but anything in
-    -- :highlight can be used.
+    -- :highlight can be used. you can also create your own and
+    -- set the colour in your colour scheme's config.
     hilight_group = "Comment",
   },
 },
