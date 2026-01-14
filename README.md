@@ -56,4 +56,4 @@ For a default configuration:
 ```
 
 > [!NOTE]
-> Contributions and suggestions are welcome but I'm a bit of a beginner in both Lua and Git, so please be patient and err on the side of patronising when explaining stuff.
+> Contributions and suggestions are welcome but I'm a bit of a beginner in both Lua and Git, so please be patient and err on the side of patronising when explaining stuff. Also there haven't been updates in 2 years but it still works and I am still keeping an eye on it. 
